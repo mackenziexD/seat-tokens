@@ -7,7 +7,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Seat\Eveapi\Models\Character\CharacterInfo;
 use Helious\SeatTokens\Observers\CharacterNotificationObserver;
 
-class NotificationsServiceProvider extends AbstractSeatPlugin
+class TokensServiceProvider extends AbstractSeatPlugin
 {
 
     /**
