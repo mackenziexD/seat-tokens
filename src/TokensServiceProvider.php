@@ -5,7 +5,7 @@ namespace Helious\SeatTokens;
 use Seat\Services\AbstractSeatPlugin;
 use Illuminate\Console\Scheduling\Schedule;
 use Seat\Eveapi\Models\Character\CharacterInfo;
-use Helious\SeatTokens\Observers\CharacterNotificationObserver;
+use Helious\SeatTokens\Observers\CharacterInfoObserver;
 
 class TokensServiceProvider extends AbstractSeatPlugin
 {
@@ -74,7 +74,7 @@ class TokensServiceProvider extends AbstractSeatPlugin
      */
     public function getPackageRepositoryUrl(): string
     {
-        return 'https://github.com/mackenziexD/seat-notifications';
+        return 'https://github.com/mackenziexD/seat-tokens';
     }
 
     /**
@@ -86,7 +86,7 @@ class TokensServiceProvider extends AbstractSeatPlugin
      */
     public function getPackagistPackageName(): string
     {
-        return 'seat-notifications-plus';
+        return 'seat-tokens';
     }
 
     /**
