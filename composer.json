@@ -1,0 +1,31 @@
+{
+  "name": "helious/seat-tokens",
+  "type": "library",
+  "keywords": [
+      "helious",
+      "seat-tokens"
+  ],
+  "authors": [
+      {
+          "name": "Helious",
+          "role": "Developer"
+      }
+  ],
+  "autoload": {
+      "psr-4": {
+          "Helious\\SeatTokens\\": "src/"
+      }
+  },
+  "require": {
+      "laravel/framework": "^10.0",
+      "eveseat/web": "^5.0",
+      "eveseat/eveapi": "^5.0"
+  },
+  "extra": {
+      "laravel": {
+          "providers": [
+              "Helious\\SeatTokens\\TokensServiceProvider"
+          ]
+      }
+  }
+}
