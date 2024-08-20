@@ -9,7 +9,10 @@ class CharacterInfoObserver
 {
 
     /**
-     * @param  \Seat\Eveapi\Models\CharacterInfo  $character
+     * Handle the soft deleted event for the character.
+     *
+     * @param  \Seat\Eveapi\Models\Character\CharacterInfo  $character
+     * @return void
      */
     public function softDeleted(CharacterInfo $character)
     {
@@ -17,11 +20,20 @@ class CharacterInfoObserver
     }
 
     /**
-     * @param  \Seat\Eveapi\Models\CharacterInfo  $character
+     * Handle the deleted event for the character.
+     *
+     * @param  \Seat\Eveapi\Models\Character\CharacterInfo  $character
+     * @return void
      */
     public function deleted(CharacterInfo $character)
     {
-      \Log::error($character);
+      $token = RefreshToken::where('character_id', $character->character_id)->first();
+
+      if ($token) {
+        $token->delete();
+        logger()->alert(sprintf("Token for character %s (ID: %s) has been deleted.", $character->name, $character->character_id));
+      } else {
+        logger()->alert(sprintf("No token found for character %s (ID: %s) to delete.", $character->name, $character->character_id));
+      }
     }
-    
 }
